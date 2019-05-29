@@ -1,0 +1,9 @@
+AT_INIT()
+AT_COLOR_TESTS
+
+AT_BANNER([pi calculation])
+AT_SETUP([sequential])
+AT_KEYWORDS([pi sequential])
+AT_CHECK([./pi 9], 0, [Sequential calculation of pi.
+pi is 3.141601156])
+AT_CLEANUP
