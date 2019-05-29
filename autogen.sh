@@ -37,19 +37,8 @@ else
     echo "opting to NOT rebuild ChangeLog"
 fi
 
-if [[ ! -f ${distdir}/COPYING ]]; then
-    echo "get GPLv3"
-    wget -q http://www.gnu.org/licenses/gpl-3.0.txt -O ${distdir}/COPYING
-fi
-
-if [[ ! -f ${distdir}/COPYING.LESSER ]]; then
-    echo "get LGPLv3"
-    wget -q http://www.gnu.org/licenses/lgpl-3.0.txt -O ${distdir}/COPYING.LESSER
-fi
-
 echo "get macros"
 [ ! -d m4 ] && mkdir m4
-[ ! -f m4/ax_pthread.m4 ] && wget "http://git.savannah.gnu.org/gitweb/?p=autoconf-archive.git;a=blob_plain;f=m4/ax_pthread.m4" --output-document=m4/ax_pthread.m4
 
 echo "update configure.ac, etc"
 cd ${distdir} && autoreconf --install --warnings=all --include=m4 $*
