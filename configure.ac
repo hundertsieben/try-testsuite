@@ -67,7 +67,7 @@ AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
 
 # set up test suite
 
-AC_CONFIG_TESTDIR([.], [.:tests])
+AC_CONFIG_TESTDIR([.], [tests])
 
 AC_CONFIG_FILES([Makefile
                  atlocal
