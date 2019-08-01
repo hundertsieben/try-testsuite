@@ -1,17 +1,20 @@
 # set up non-recursive autotools
 
 AM_CFLAGS = -g -Wall -fPIC
-bin_PROGRAMS = pi
-pi_SOURCES = src/pi.c
+bin_PROGRAMS = pi ## correct
+pi_SOURCES = src/pi.c ## correct
 
 # build-aux
 
-dist_doc_DATA = README.md
-EXTRA_DIST = autogen.sh testsuite.at $(srcdir)/package.m4 $(TESTSUITE) atlocal.in
+dist_doc_DATA = README.md ## unsure
+EXTRA_DIST = autogen.sh testsuite.at $(srcdir)/package.m4 $(TESTSUITE) atlocal.in ## unsure
 
 # set up test suite
 #
-TESTSUITE = $(srcdir)/testsuite
+TESTSUITE = $(srcdir)/tests
+
+check: atconfig atlocal $(TESTSUITE)
+	$(SHELL) ## not finished TODO
 
 check-local: atconfig atlocal $(TESTSUITE)
 	$(SHELL) ’$(TESTSUITE)’ $(TESTSUITEFLAGS)
